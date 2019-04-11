@@ -27,8 +27,8 @@ func (p *RestorePlugin) AppliesTo() (velero.ResourceSelector, error) {
 // Execute fixes the route path on restore to use the target cluster's domain name
 func (p *RestorePlugin) Execute(input *velero.RestoreItemActionExecuteInput) (*velero.RestoreItemActionExecuteOutput, error) {
 	p.Log.Info("Hello from PV RestorePlugin!")
-	if input.Restore.Annotations[common.SwingPVAnnotation] != "" {
-		// Don't swing PV
+	if input.Restore.Annotations[common.StageMigration] != "" {
+		// Stage migration
 	}
 
 	return output, nil
